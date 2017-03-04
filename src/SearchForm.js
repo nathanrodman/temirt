@@ -11,6 +11,22 @@ export default class SearchForm extends Component {
   }
 
   handleSubmit(e){
+    const url = `https://developer.trimet.org/ws/v2/arrivals/locIDs/${this.state.stopId}/appID/D94D452860ED1DE75679E8EB4`;
+    let request = new XMLHttpRequest();
+    request.open('GET', url, true);
+    request.send()
+
+    request.onreadystatechange = () => {
+      if(request.readyState === XMLHttpRequest.DONE) {
+        if(request.status === 200){
+          console.log(request.responseText);
+        }
+        else {
+          console.log('Something went wrong')
+          console.log(request.responseText);
+        }
+      }
+    }
     e.preventDefault();
   }
   
