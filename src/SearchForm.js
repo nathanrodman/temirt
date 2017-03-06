@@ -27,6 +27,10 @@ export default class SearchForm extends Component {
         }
       }
     }
+    // clear the field and set stop id back to empty string.
+    this.setState({
+      stopId: ''
+    })
     e.preventDefault();
   }
   
