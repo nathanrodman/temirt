@@ -1,0 +1,103 @@
+{
+  "resultSet": {
+    "detour": [{
+      "route": [{
+        "route": 15,
+        "detour": true,
+        "type": "B",
+        "desc": "15-Belmont\/NW 23rd"
+      }],
+      "info_link_url": "",
+      "end": 1607015040000,
+      "id": "39017",
+      "begin": 1428832800000,
+      "desc": "Buses continue to use the Hawthorne Bridge due to weight restrictions on the Morrison Bridge."
+    }],
+    "arrival": [{
+      "feet": 5071,
+      "inCongestion": false,
+      "departed": true,
+      "scheduled": 1488780120000,
+      "loadPercentage": 0,
+      "shortSign": "15 Gateway TC",
+      "estimated": 1488780115000,
+      "detoured": true,
+      "tripID": "7172997",
+      "dir": 1,
+      "blockID": 1542,
+      "detour": ["39017"],
+      "route": 15,
+      "piece": "1",
+      "fullSign": "15  Belmont\/NW 23rd to Gateway TC",
+      "id": "7172997_79320_5",
+      "dropOffOnly": false,
+      "vehicleID": "2303",
+      "locid": 8989,
+      "newTrip": false,
+      "status": "estimated"
+    }, {
+      "feet": 25233,
+      "inCongestion": false,
+      "departed": false,
+      "scheduled": 1488782220000,
+      "loadPercentage": 0,
+      "shortSign": "15 Gateway TC",
+      "estimated": 1488782220000,
+      "detoured": true,
+      "tripID": "7172998",
+      "dir": 1,
+      "blockID": 1535,
+      "detour": ["39017"],
+      "route": 15,
+      "piece": "1",
+      "fullSign": "15  Belmont\/NW 23rd to Gateway TC",
+      "id": "7172998_81420_5",
+      "dropOffOnly": false,
+      "vehicleID": "3607",
+      "locid": 8989,
+      "newTrip": false,
+      "status": "estimated"
+    }, {
+      "scheduled": 1488780360000,
+      "shortSign": "Portland Streetcar NS Line to SW 10th & Clay",
+      "estimated": 1488780360000,
+      "detoured": false,
+      "dir": 1,
+      "blockID": 74,
+      "route": 193,
+      "nextBusFeed": true,
+      "fullSign": "Portland Streetcar NS Line to SW 10th & Clay",
+      "block": 74,
+      "streetCar": true,
+      "id": "740_79560_5",
+      "newTrip": false,
+      "locid": 8989,
+      "status": "estimated"
+    }, {
+      "scheduled": 1488781440000,
+      "shortSign": "Portland Streetcar NS Line to NW Lovejoy & 18th",
+      "estimated": 1488781440000,
+      "detoured": false,
+      "dir": 1,
+      "blockID": 75,
+      "route": 193,
+      "nextBusFeed": true,
+      "fullSign": "Portland Streetcar NS Line to NW Lovejoy & 18th",
+      "block": 75,
+      "streetCar": true,
+      "id": "751_80640_5",
+      "newTrip": false,
+      "locid": 8989,
+      "status": "estimated"
+    }],
+    "queryTime": 1488779867314,
+    "location": [{
+      "lng": -122.698688376761,
+      "passengerCode": "E",
+      "id": 8989,
+      "dir": "Southbound",
+      "lat": 45.5306116478909,
+      "desc": "NW 23rd & Marshall"
+    }]
+  }
+}

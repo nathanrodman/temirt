@@ -11,27 +11,13 @@ export default class SearchForm extends Component {
   }
 
   handleSubmit(e){
-    const url = `https://developer.trimet.org/ws/v2/arrivals/locIDs/${this.state.stopId}/appID/D94D452860ED1DE75679E8EB4`;
-    let request = new XMLHttpRequest();
-    request.open('GET', url, true);
-    request.send()
-
-    request.onreadystatechange = () => {
-      if(request.readyState === XMLHttpRequest.DONE) {
-        if(request.status === 200){
-          console.log(request.responseText);
-        }
-        else {
-          console.log('Something went wrong')
-          console.log(request.responseText);
-        }
-      }
-    }
+     e.preventDefault();
+    this.props.getArrivals(this.state.stopId);
     // clear the field and set stop id back to empty string.
     this.setState({
       stopId: ''
     })
-    e.preventDefault();
+   
   }
   
   handleTyping(e){
@@ -56,7 +42,7 @@ export default class SearchForm extends Component {
           value={this.state.stopId}
           onChange={this.handleTyping.bind(this)}
           />
-        <button type="button">Search</button>
+        <button type="button" onClick={this.handleSubmit.bind(this)}>Search</button>
       </form>
     )
   }
