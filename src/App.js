@@ -1,33 +1,48 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './App.css';
 
 import SearchForm from './SearchForm';
+import ArrivalTable from './ArrivalTable';
 
 export default class App extends Component {
 
+  constructor(props){
+    super(props);
+
+    this.state = {
+      arrivalData: null,
+      arrivalOk: false,
+    };
+
+  }
+  
   getArrivals(stopId) {
     const url = `https://developer.trimet.org/ws/v2/arrivals/locIDs/${stopId}/appID/D94D452860ED1DE75679E8EB4`;
-    let request = new XMLHttpRequest();
-    request.open('GET', url, true);
-    request.send()
-
-    request.onreadystatechange = () => {
-      if(request.readyState === XMLHttpRequest.DONE) {
-        if(request.status === 200){
-          console.log(request.responseText);
-        }
-        else {
-          console.log('Something went wrong')
-          console.log(request.responseText);
-        }
-      }
-    }
+    axios.get(url)
+      .then((response) => {
+        console.log(response.request.responseText)
+        this.setState({
+          arrivalData: response.request.responseText,
+          arrivalOk: true,
+        });    
+      })
+      .catch((response) => {
+        console.log(response);
+        this.setState({
+          arrivalData: response.responseText,
+          arrivalOk: true,
+        });   
+      });
   }
+
   render() {
+    
     return (
       <div>
         <h1>Temirt</h1>
-        <SearchForm getArrivals={this.getArrivals} />
+        <SearchForm getArrivals={this.getArrivals.bind(this)} />
+        { this.state.arrivalOk ? <ArrivalTable arrivals={this.state.arrivalData} /> : '' }
       </div>
     )
   }

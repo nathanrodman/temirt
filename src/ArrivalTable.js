@@ -1,4 +1,4 @@
-import {Component} from 'react'
+import React, {Component} from 'react'
 
 export default class ArrivalTable extends Component {
 
@@ -7,8 +7,10 @@ export default class ArrivalTable extends Component {
   */
 
   render(){
-    {this.props.arrivals.map((value, index) => {
-      // <Arrival info={value} />
-    })}
+    return (
+      <p>
+        {JSON.stringify(this.props.arrivals)}
+      </p>
+    )
   }
 }
