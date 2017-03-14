@@ -8,9 +8,13 @@ export default class Arrival extends Component {
       return time === 0 ? `Arriving now` : `Arriving in ${time} minutes`
     }
     else if(this.props.arrivalData.status === "scheduled"){
-      const time = Math.floor((this.props.arrivalData.scheduled - Date.now()) / 60000)
+      const scheduledTime = this.props.arrivalData.scheduled
+      const time = Math.floor((scheduledTime - Date.now()) / 60000)
       
-      return time <= 60 ? `Scheduled to arrive in ${time} minutes` : `Scheduled to arrive at ${new Date(this.props.arrivalDate.scheduled).toString()}`
+      console.log("Estimated time: ", time);
+      console.log("this.props.arrivalData.scheduled: ", scheduledTime );
+
+      return time <= 60 ? `Scheduled to arrive in ${time} minutes` : `Scheduled to arrive at ${new Date(scheduledTime).toString()}`
     }
   }
 
