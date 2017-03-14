@@ -21,28 +21,28 @@ export default class App extends Component {
     const url = `https://developer.trimet.org/ws/v2/arrivals/locIDs/${stopId}/appID/D94D452860ED1DE75679E8EB4`;
     axios.get(url)
       .then((response) => {
-        console.log(response.request.responseText)
+        console.log(response);
         this.setState({
-          arrivalData: response.request.responseText,
+          arrivalData: JSON.parse(response.request.responseText),
           arrivalOk: true,
         });    
       })
-      .catch((response) => {
-        console.log(response);
+      .catch((error) => {
+        console.log(error);
         this.setState({
-          arrivalData: response.responseText,
-          arrivalOk: true,
-        });   
+          arrivalData: error,
+          arrivalOk: false,
+        });
       });
   }
 
   render() {
-    
+
     return (
       <div>
         <h1>Temirt</h1>
         <SearchForm getArrivals={this.getArrivals.bind(this)} />
-        { this.state.arrivalOk ? <ArrivalTable arrivals={this.state.arrivalData} /> : '' }
+        { this.state.arrivalOk ? <ArrivalTable arrivals={this.state.arrivalData} /> : null }
       </div>
     )
   }
