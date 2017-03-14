@@ -42,7 +42,7 @@ export default class App extends Component {
       <div>
         <h1>Temirt</h1>
         <SearchForm getArrivals={this.getArrivals.bind(this)} />
-        { this.state.arrivalOk ? <ArrivalTable arrivals={this.state.arrivalData} /> : null }
+        { this.state.arrivalOk && <ArrivalTable arrivals={this.state.arrivalData} /> }
       </div>
     )
   }

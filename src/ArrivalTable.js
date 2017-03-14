@@ -8,22 +8,17 @@ export default class ArrivalTable extends Component {
     this.props.arrivals
   */
 
-  detourBanner(){
-    if(this.props.arrivals.resultSet.detour){
-      return (
-        <div>
-          test
-        </div>
-      )
-    }
-  }
-
   render(){
+    const arrivals = this.props.arrivals.resultSet;
+
     return (
       <ul>
-        {this.props.arrivals.resultSet.arrival.map((value, index) => {
-          return <Arrival data={value} />
-        })}
+        {/* arrivals.detour && <Detour detourInfo={arrivals.detour} */}
+        {arrivals.error ? <li>{arrivals.error.content}</li> :
+          arrivals.arrival ? arrivals.arrival.map((value, index) => {
+            return <Arrival data={value} />;
+          }) : <li>{`No current arrivals for stop ${arrivals.location[0].id}`}</li>
+        }
       </ul>
     )
   }
