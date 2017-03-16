@@ -13,7 +13,7 @@ export default class ArrivalTable extends Component {
 
     return (
       <div>
-        <h3>{arrivals.location[0].id}</h3>
+        <h3>{arrivals.location && `${arrivals.location[0].id} - ${arrivals.location[0].desc}`}</h3>
         <ul>
           {/* arrivals.detour && <Detour detourInfo={arrivals.detour} */}
           {arrivals.error ? <li>{arrivals.error.content}</li> :
