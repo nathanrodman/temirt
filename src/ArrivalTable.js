@@ -12,14 +12,17 @@ export default class ArrivalTable extends Component {
     const arrivals = this.props.arrivals.resultSet;
 
     return (
-      <ul>
-        {/* arrivals.detour && <Detour detourInfo={arrivals.detour} */}
-        {arrivals.error ? <li>{arrivals.error.content}</li> :
-          arrivals.arrival ? arrivals.arrival.map((value, index) => {
-            return <Arrival arrivalData={value} />;
-          }) : <li>{`No current arrivals for stop ${arrivals.location[0].id}`}</li>
-        }
-      </ul>
+      <div>
+        <h3>{arrivals.location[0].id}</h3>
+        <ul>
+          {/* arrivals.detour && <Detour detourInfo={arrivals.detour} */}
+          {arrivals.error ? <li>{arrivals.error.content}</li> :
+            arrivals.arrival ? arrivals.arrival.map((value, index) => {
+              return <Arrival arrivalData={value} />;
+            }) : <li>{`No current arrivals for stop ${arrivals.location[0].id}`}</li>
+          }
+        </ul>
+      </div>
     )
   }
 }
