@@ -18,14 +18,15 @@ export default class Detour extends Component {
     */
   
   render() {
+    const detourRoutes = this.props.detourInfo.route.map((value) => value.route).join(', ')
+
     return (
     <div>
       <h3>{this.props.detourInfo.desc}</h3>
-      <ul>
-        {this.props.detourInfo.route.map((value) => {
-          return <li>{value.route}</li>
-        })}
-      </ul>
+      <p>Routes affected: {detourRoutes}</p>
+        {/* this.props.detourInfo.route.map((value) => {
+          return `${value.route}, `
+        }) */}
     </div>
     )
   }
