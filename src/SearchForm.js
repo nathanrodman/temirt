@@ -24,7 +24,7 @@ export default class SearchForm extends Component {
     e.preventDefault();
 
     const value = e.target.value;
-    const rgx = /^[0-9]{0,7}$/
+    const rgx = /^[1-9]{1}[0-9]{0,6}$/
 
     if(rgx.test(value)){
       this.setState({
