@@ -24,13 +24,28 @@ export default class SearchForm extends Component {
     e.preventDefault();
 
     const value = e.target.value;
-    const rgx = /^[1-9]{1}[0-9]{0,6}$/
+    const rgx = /^[0-9]{0,6}$/
 
-    if(rgx.test(value)){
-      this.setState({
-        [e.target.name]: value,
-      });
+    console.log(value);
+    console.log(this.state.stopId.length)
+
+    if(value != 0 && this.state.stopId.length === 0) {
+      if(rgx.test(value)){
+        this.setState({
+          [e.target.name]: value,
+        });
+      }
     }
+    else if(this.state.stopId.length > 0){
+      if(rgx.test(value)){
+        this.setState({
+          [e.target.name]: value,
+        });
+      }
+    }
+    
+
+    
   }
 
   render(){
