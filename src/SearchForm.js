@@ -25,10 +25,7 @@ export default class SearchForm extends Component {
 
     const value = e.target.value;
     const rgx = /^[0-9]{0,6}$/
-
-    console.log(value);
-    console.log(this.state.stopId.length)
-
+    
     if(value != 0 && this.state.stopId.length === 0) {
       if(rgx.test(value)){
         this.setState({
