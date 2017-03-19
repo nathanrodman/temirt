@@ -19,7 +19,7 @@ export default class ArrivalTable extends Component {
           { arrivals.detour && arrivals.detour.map((value, index) => {
             return <Detour detourInfo={value} /> 
     })}
-          {arrivals.error ? <li>{arrivals.error.content}</li> :
+          {arrivals.error ? <div className='alert alert-danger'>{arrivals.error.content}</div> :
             arrivals.arrival ? arrivals.arrival.map((value, index) => {
               return <Arrival arrivalData={value} />;
             }) : <li>{`No current arrivals for stop ${arrivals.location[0].id}`}</li>
