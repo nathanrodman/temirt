@@ -5,7 +5,7 @@ export default class Arrival extends Component {
   arrivalTime(){
     if(this.props.arrivalData.status === "estimated"){
       const time = Math.floor((this.props.arrivalData.estimated - Date.now()) / 60000)
-      return time === 0 ? `Arriving now` : `Arriving in ${time} minutes`
+      return time <= 0 ?  <p>Arriving <strong>now</strong></p> : <p>Arriving in {time} minutes</p>
     }
     else if(this.props.arrivalData.status === "scheduled"){
       const scheduledTime = this.props.arrivalData.scheduled;
@@ -16,15 +16,28 @@ export default class Arrival extends Component {
   }
 
   render(){
+
+    const listStyle = {
+      "list-style-type": "none", 
+    };
     const arrivalData = this.props.arrivalData;
-    // this.props.arrivalData
+
+    const style = {
+      "display": "flex",
+      "flex-direction": "row",
+    };
     return (
-      <li>
-        <ul>
-          <li>{ this.props.arrivalData.fullSign }</li>
-          <li>{ this.arrivalTime() }</li>
-        </ul>
-      </li>
+        <div className="container arrival-container animated fadeInUp" style={style}>
+          <div className="bus-icon">
+            <i className="fa fa-bus" aria-hidden="true"></i>
+          </div>
+          <div className="fullsign">
+          { this.props.arrivalData.fullSign }
+          </div>
+          <div className="arrival-time">
+          { this.arrivalTime() }
+          </div>
+        </div>
     )
   }
 }

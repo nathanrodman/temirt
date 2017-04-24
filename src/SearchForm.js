@@ -25,7 +25,7 @@ export default class SearchForm extends Component {
 
     const value = e.target.value;
     const rgx = /^[0-9]{0,6}$/
-    
+
     if(value != 0 && this.state.stopId.length === 0) {
       if(rgx.test(value)){
         this.setState({
@@ -53,8 +53,9 @@ export default class SearchForm extends Component {
           placeholder='Enter Stop ID'
           value={this.state.stopId}
           onChange={this.handleTyping.bind(this)}
+          style={{"margin" : "2px"}}
           />
-        <button type="button" onClick={this.handleSubmit.bind(this)}>Search</button>
+        <button type="button" onClick={this.handleSubmit.bind(this)} style={{"margin" : "2px"}}>Search</button>
       </form>
     )
   }

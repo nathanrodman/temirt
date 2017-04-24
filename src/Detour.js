@@ -21,7 +21,7 @@ export default class Detour extends Component {
     const detourRoutes = this.props.detourInfo.route.map((value) => value.route).join(', ')
 
     return (
-    <div className='alert alert-info' role='alert'>
+    <div className='alert alert-warning' role='alert'>
       <p><strong>{this.props.detourInfo.desc}</strong></p>
       <p>Routes affected: {detourRoutes}</p>
     </div>

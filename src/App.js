@@ -21,7 +21,6 @@ export default class App extends Component {
     const url = `https://developer.trimet.org/ws/v2/arrivals/locIDs/${stopId}/appID/D94D452860ED1DE75679E8EB4`;
     axios.get(url)
       .then((response) => {
-        console.log(response);
         this.setState({
           arrivalData: JSON.parse(response.request.responseText),
           arrivalOk: true,
@@ -39,7 +38,7 @@ export default class App extends Component {
   render() {
 
     return (
-      <div>
+      <div className="container" style={{"textAlign": "center"}}>
         <h1>Temirt</h1>
         <SearchForm getArrivals={this.getArrivals.bind(this)} />
         { this.state.arrivalOk && <ArrivalTable arrivals={this.state.arrivalData} /> }
